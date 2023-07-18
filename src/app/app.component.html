@@ -1,1 +1,35 @@
-<app-calendar></app-calendar>
+<header>
+    <nav>
+        <div class="actions">
+            <app-popover *ngIf="isAddEventPopoverOpen" [align]="'bottom'" (onClose)="isAddEventPopoverOpen = false">
+                <form class="actions__popover-form">
+                    <input name="createQuery" type="text" [(ngModel)]="createQuery"
+                        placeholder="5 марта, 14:00, День рождения" (keyup.enter)="addEvent()">
+                    <button type="button" (click)="addEvent()">Создать</button>
+                    <p *ngIf="isSuccessMessageOpen"><br>Успешно добавлено</p>
+                    <p *ngIf="isErrorMessageOpen"><br>Проверьте правильность запроса</p>
+                </form>
+            </app-popover>
+            <button class="button_primary" (click)="isAddEventPopoverOpen = !isAddEventPopoverOpen">
+                Добавить
+            </button>
+            <button class="button_primary" (click)="reloadPage()">Обновить</button>
+        </div>
+
+        <div class="search">
+            <label>
+                <img src="assets\icons\search-line.svg" alt="search">
+                <input type="text" placeholder="Событие, дата или участник" (input)="findEvent($event.target.value)">
+            </label>
+            <div class="search__result" *ngIf="searchData.length > 0">
+                <ul>
+                    <li *ngFor="let item of searchData" (click)="selectEvent(item.date)">{{item.title}}</li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
+
+<main class="calendar-wrap">
+    <app-calendar class="calendar" [date]="selectedDate"></app-calendar>
+</main>

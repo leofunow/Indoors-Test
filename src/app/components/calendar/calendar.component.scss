@@ -1,102 +1,105 @@
+.calendar-main {
+  min-width: 1000px;
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  // outline: 1px solid var(--gray);
+  border-radius: 6px;
+  grid-gap: 1px;
+  padding: 1px;
 
-.calendar-main{
+  .calendar-main__cell {
+    position: relative;
+    padding: 6px;
+    height: 150px;
+    border: 1px solid var(--gray);
+    box-sizing: border-box;
+    margin: -1px;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
 
-    display: grid;
-    grid-template-columns: repeat(7, 1fr);
-    // outline: 1px solid var(--gray);
-    border-radius: 6px;
-    grid-gap: 1px;
-    padding: 1px;
+    &:hover:not(&_has-event):not(&_selected) {
+      background-color: var(--light-gray);
+      .calendar-main__cell__date {
+        font-weight: bold;
+      }
+    }
 
-    .calendar-main__cell{
-        position: relative;
+    &_has-event {
+      background-color: var(--blue);
+    }
+
+    &_selected {
+      padding: 5px;
+      background-color: var(--ligth-blue);
+      border: 2px solid var(--dark-blue);
+      z-index: 1;
+    }
+
+    .calendar-main__cell__date {
+      color: var(--font-light);
+      margin-bottom: 6px;
+    }
+
+    .calendar-main__cell__form {
+      * {
+        font-size: 16px;
+        font-family: "Roboto", sans-serif;
+      }
+
+      display: flex;
+      flex-direction: column;
+
+      input {
         padding: 6px;
-        height: 150px;
-        border: 1px solid var(--gray);
-        box-sizing: border-box;
-        margin: -1px;
-        cursor: pointer;
-        transition: background-color .2s ease-in-out;
-        
-        &:hover:not(&_has-event):not(&_selected){
-            background-color: var(--light-gray);
+        margin-bottom: 6px;
+      }
+
+      input:last-of-type {
+        margin-bottom: 32px;
+      }
+
+      textarea {
+        padding: 6px;
+        resize: none;
+        margin-bottom: 16px;
+      }
+
+      &__actions {
+        button {
+          margin-right: 12px;
         }
-        
-        &_has-event{
-            background-color: var(--blue);
-        }
-
-        &_selected{
-            padding: 5px;
-            background-color: var(--ligth-blue);
-            border: 2px solid var(--dark-blue);
-            z-index: 1;
-        }
-
-        .calendar-main__cell__date{
-            color: var(--gray);
-            margin-bottom: 6px;
-        }
-
-        .calendar-main__cell__form{
-
-            display: flex;
-            flex-direction: column;
-            
-            input{
-                padding: 4px;
-                margin-bottom: 6px;
-            }
-
-            input:last-of-type{
-                margin-bottom: 32px;
-            }
-
-            textarea{
-                resize: none;
-                margin-bottom: 16px;
-            }
-
-            &__actions{
-                margin-bottom: 16px;
-                button {
-                    margin-right: 12px;
-                }
-            }
-        }
-        
+      }
     }
+  }
 
-
-    >:first-child{
-        border-radius: 6px 0 0 0;
-    }
-    >:nth-child(7){
-        border-radius: 0 6px 0 0;
-    }
-    >:last-child{
-        border-radius: 0 0 6px 0;
-    }
-    >:nth-last-child(7){
-        border-radius: 0 0 0 6px;
-    }
+  > :first-child {
+    border-radius: 6px 0 0 0;
+  }
+  > :nth-child(7) {
+    border-radius: 0 6px 0 0;
+  }
+  > :last-child {
+    border-radius: 0 0 6px 0;
+  }
+  > :nth-last-child(7) {
+    border-radius: 0 0 0 6px;
+  }
 }
 
+.calendar-month {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 16px;
+  margin-top: 16px;
 
-.calendar-month{
+  > * {
+    margin-right: 6px;
+  }
 
-    display: flex;
-    flex-direction: row;
-    margin-bottom: 16px;
-    margin-top: 16px;
-
-    >*{
-        margin-right: 6px;
-    }
-
-    &__header{
-        width: 200px;
-        font-size: 24px;
-        text-align: center;
-    }
+  &__header {
+    color: var(--black);
+    width: 200px;
+    font-size: 24px;
+    text-align: center;
+  }
 }

@@ -1,9 +1,21 @@
 .popover-container{
-    padding: 12px;
+    z-index:100;
+    padding: 24px;
     border: 1px solid var(--gray);
+    filter: drop-shadow(0px 0 4px var(--shadow-gray));
     background-color: #fff;
     position: absolute;
     opacity: 0;
+    border-radius: 6px;
+
+    &__close {
+        position: absolute;
+        top: 6px;
+        right: 6px;
+        width: 16px;
+        height: 16px;
+        cursor: pointer;
+    }
 }
 
 .right{
@@ -66,6 +78,3 @@
     transform: translateX(-50%) rotate(315deg);
 }
 
-.popover-container{
-    box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.2);
-}

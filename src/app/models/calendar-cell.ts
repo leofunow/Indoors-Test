@@ -1,4 +1,6 @@
+import { CalendarEvent } from "./calendar-event";
+
 export interface CalendarCell {
     date: Date;
-    event?: any;
+    event?: CalendarEvent;
 }

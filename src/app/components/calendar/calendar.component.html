@@ -1,28 +1,33 @@
 <div class="calendar-month">
-    <button class="calendar-month__left" (click)="toLastMonth()"> < </button>
-    <div class="calendar-month__header"> {{date.toLocaleDateString('ru-RU',{month: 'long', year: 'numeric'})}}</div>
-    <button class="calendar-month__right" (click)="toNextMonth()"> > </button>
+    <button class="calendar-month__left" (click)="toLastMonth()"> ◀ </button>
+    <div class="calendar-month__header"> {{getMonthString()}}</div>
+    <button class="calendar-month__right" (click)="toNextMonth()"> ▶ </button>
     <button class="calendar-month__today" (click)="toToday()">Сегодня</button>
 </div>
 
 <div class="calendar-main">
     <div [class]="getCellClassList(cell, i)" *ngFor="let cell of dateCells; let i = index" (click)="selectCell(i)">
         <div class="calendar-main__cell__date">{{getDay(i) + cell.date.getDate()}}</div>
-        <app-popover *ngIf="i === selectedCellId">
-            
-            <form class="calendar-main__cell__form">
-                <input placeholder="Событие">
-                <input placeholder="День, месяц, год">
-                <input placeholder="Имена участников">
+        <app-popover *ngIf="i === selectedCellId" style="cursor: initial;" (onClose)="closePopover()">
+            <form class="calendar-main__cell__form" [formGroup]="eventFormGroup">
+                <input #title placeholder="Событие" formControlName="title" [autofocus]="i === selectedCellId"
+                    (keyup.enter)="focusNext($event)">
+                <input placeholder="День, месяц, год" formControlName="date" (keyup.enter)="focusNext($event)">
+                <input placeholder="Имена участников" formControlName="names" (keyup.enter)="focusNext($event)">
 
-                <textarea cols="30" rows="10" placeholder="Описание"></textarea>
+                <textarea cols="30" rows="10" placeholder="Описание" formControlName="description" data-index="4"
+                    (keyup.enter)="submitEvent()"></textarea>
 
                 <div class="calendar-main__cell__form__actions">
-                    <button type="button">Готово</button>
-                    <button type="button">Удалить</button>
+                    <button type="button" (click)="submitEvent()" data-index="5">Готово</button>
+                    <button type="button" (click)="deleteEvent()">Удалить</button>
                 </div>
             </form>
         </app-popover>
-        <div class="calendar-main__cell__event"><b>Напиться!</b></div>
+        <div class="calendar-main__cell__event" *ngIf="cell.event">
+            <b>{{cell.event.title | truncate: 15}}</b> <br>
+            {{cell.event.names | truncate: 20}} <br>
+            {{cell.event.description | truncate: 20}}
+        </div>
     </div>
 </div>

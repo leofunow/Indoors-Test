@@ -1,14 +1,63 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
-
+*{
+    margin: 0;
+    padding: 0;
+}
 :root{
-    --gray: rgb(168, 168, 168);
+    --gray: #e7e7e7;
     --light-gray: rgb(240, 240, 240);
     --font-primary: rgb(87, 87, 87);
-    --blue: lightblue;
+    --font-light: rgb(95, 95, 95);
+    --blue: #c1e4fe;
     --ligth-blue: rgb(209, 244, 255);
     --dark-blue: rgb(27, 194, 250);
+    --primary-blue: #006fca;
+    --header-bg: #f4f4f4;
+    --black: rgb(20, 20, 20);
+    --shadow-gray: rgb(136, 136, 136);
 
     font-family: 'Roboto', sans-serif;
     color: var(--font-primary);
 }
+button,
+input,
+textarea{
+    font-family: 'Roboto', sans-serif;
+    padding: 2px 12px;
+    background-color: white;
+    border: 1px solid var(--gray);
+    transition: border .2s;
+    outline: none;
+    border-radius: 4px;
+}
 
+button:hover,
+input:hover,
+textarea:hover{
+    border: 1px solid var(--font-light);
+}
+
+input:focus,
+textarea:focus{
+    border: 1px solid var(--font-primary);
+}
+
+
+.button_primary{
+    outline: none;
+    border: none;
+    background-color: var(--primary-blue);
+    padding: 8px 16px;
+    color: white;
+    font-size: 16px;
+    border-radius: 2px;
+    text-shadow: 1px 1px 2px var(--shadow-gray);
+    transition: .2s;
+    cursor: pointer;
+}
+
+.button_primary:hover{
+    outline: none;
+    border: none;
+    filter: brightness(110%);
+}

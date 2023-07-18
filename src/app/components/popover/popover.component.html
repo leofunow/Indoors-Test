@@ -1,3 +1,4 @@
-<div #container class="popover-container">
+<div #container class="popover-container" (click)="popoverClick($event)">
+    <div class="popover-container__close"><img src="assets\icons\close-line.svg" (click)="close()"></div>
     <ng-content></ng-content>
 </div>
