@@ -15,11 +15,11 @@
                 <input placeholder="День, месяц, год" formControlName="date" (keyup.enter)="focusNext($event)">
                 <input placeholder="Имена участников" formControlName="names" (keyup.enter)="focusNext($event)">
 
-                <textarea cols="30" rows="10" placeholder="Описание" formControlName="description" data-index="4"
+                <textarea cols="30" rows="10" placeholder="Описание" formControlName="description"
                     (keyup.enter)="submitEvent()"></textarea>
 
                 <div class="calendar-main__cell__form__actions">
-                    <button type="button" (click)="submitEvent()" data-index="5">Готово</button>
+                    <button type="button" (click)="submitEvent()">Готово</button>
                     <button type="button" (click)="deleteEvent()">Удалить</button>
                 </div>
             </form>

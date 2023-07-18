@@ -28,7 +28,7 @@ export class CalendarDataService {
   }
 
   addEvent(event: CalendarEvent) {
-    let oldEvent = this.calendarData.find((e) => e.date === event.date);
+    let oldEvent = this.calendarData.find((e) => e.date.toLocaleString() === event.date.toLocaleString());
     if (oldEvent)
       this.calendarData.splice(this.calendarData.indexOf(oldEvent), 1);
     this.calendarData.push(event);
