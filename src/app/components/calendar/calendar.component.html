@@ -1,0 +1,28 @@
+<div class="calendar-month">
+    <button class="calendar-month__left" (click)="toLastMonth()"> < </button>
+    <div class="calendar-month__header"> {{date.toLocaleDateString('ru-RU',{month: 'long', year: 'numeric'})}}</div>
+    <button class="calendar-month__right" (click)="toNextMonth()"> > </button>
+    <button class="calendar-month__today" (click)="toToday()">Сегодня</button>
+</div>
+
+<div class="calendar-main">
+    <div [class]="getCellClassList(cell, i)" *ngFor="let cell of dateCells; let i = index" (click)="selectCell(i)">
+        <div class="calendar-main__cell__date">{{getDay(i) + cell.date.getDate()}}</div>
+        <app-popover *ngIf="i === selectedCellId">
+            
+            <form class="calendar-main__cell__form">
+                <input placeholder="Событие">
+                <input placeholder="День, месяц, год">
+                <input placeholder="Имена участников">
+
+                <textarea cols="30" rows="10" placeholder="Описание"></textarea>
+
+                <div class="calendar-main__cell__form__actions">
+                    <button type="button">Готово</button>
+                    <button type="button">Удалить</button>
+                </div>
+            </form>
+        </app-popover>
+        <div class="calendar-main__cell__event"><b>Напиться!</b></div>
+    </div>
+</div>
