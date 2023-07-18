@@ -1,27 +1,18 @@
 # IndoorsTest
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.15.
+Проект создан на основе [Angular CLI](https://github.com/angular/angular-cli) версии 9.1.15.
 
-## Development server
+Реализован функционал добавления события, сохранения в localStorage, редактирования события, удаления события, навигации по месяцам, быстрого добавления по строке, обновления страницы, поиска. Панель редактирования ивента автоматически определяет положение (не использовались дополнительные библиотеки с поповерами). Присутствуют иконки. Для стилей использован scss. Были применены пайпы для обрезания размера текста в ячейке, модели данных, сервис данных.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## Запуск
 
-## Code scaffolding
+Ввeдите 
+```
+npm i --legacy-peer-deps
+ng serve
+```
+для запуска dev сервера. Приложение запустится по ссылке `http://localhost:4200/`.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Pages
 
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+Ссылка на [github pages](https://leofunow.github.io/Indoors-Test/)
