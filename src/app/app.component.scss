@@ -3,6 +3,7 @@ main{
     padding: 16px 64px;
     display: flex;
     justify-content: center;
+    min-width: 1000px;
 }
 
 header{
@@ -16,6 +17,7 @@ nav,
 .calendar{
     width: 100%;
     max-width: 1600px;
+    min-width: 1000px;
 }
 
 nav {
